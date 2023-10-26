@@ -1,9 +1,11 @@
-package internal
+package aokisha256_test
 
 import (
 	"crypto/sha256"
 	"math/rand"
 	"testing"
+
+	"github.com/PenisProtocol/aokisha256"
 )
 
 func TestHash(t *testing.T) {
@@ -56,7 +58,7 @@ func TestHash(t *testing.T) {
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			expected := sha256.Sum256(tt.target)
-			got := Hash(tt.target)
+			got := aokisha256.Hash(tt.target)
 			if got != expected {
 				t.Errorf("Hash(%v) = %v, want %v", tt.target, got, expected)
 			}
